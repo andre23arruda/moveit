@@ -1,0 +1,24 @@
+@import './colors';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+	background: $background;
+	color: $text;
+    font-family: 'Inter', sans-serif;
+    // font-family: 'Rajdhani', sans-serif
+}
+
+button {
+    transition: 0.2s;
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(0.85);
+    }
+}

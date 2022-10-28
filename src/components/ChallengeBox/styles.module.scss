@@ -1,0 +1,94 @@
+@import '../../assets/theme/colors';
+
+.box {
+    height: 100%;
+    background: $white;
+    padding: 1.5rem 2.5rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+    text-align: center;
+
+    strong {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
+    img {
+        padding-top: 3rem;
+    }
+
+    p {
+        margin-top: 1rem;
+    }
+}
+
+.boxActive {
+    justify-content: space-between;
+
+    .xp {
+        color: $blue;
+        font-weight: 600;
+        font-size: 1.2rem;
+        width: 100%;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid $line-bottom;
+    }
+
+    .exerciseContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        img {
+            max-height: 7rem;
+            max-width: 7rem;
+            display: block;
+            margin: 0 auto;
+            padding-top: 0;
+        }
+
+        strong {
+            color: black;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        p {
+            color: $text;
+        }
+    }
+
+    .buttonsContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        width: 100%;
+
+        button {
+            height: 3rem;
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 0;
+            border-radius: 5px;
+            color: $white;
+            font-size: 1rem;
+            font-weight: 600;
+
+            &.red {
+                background-color: $red;
+            }
+
+            &.green {
+                background-color: $green;
+            }
+        }
+    }
+
+}
