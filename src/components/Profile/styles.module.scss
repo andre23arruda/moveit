@@ -27,4 +27,17 @@
             margin-right: 0.5rem;
         }
     }
+
+    .logoutButton {
+        font-size: 0px;
+        align-self: center;
+        margin-left: auto;
+        border: 0;
+        padding: 0.25rem;
+        border-radius: 50%;
+
+        img {
+            height: 1rem;
+        }
+    }
 }

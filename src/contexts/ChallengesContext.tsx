@@ -1,11 +1,17 @@
 import React, { createContext, ReactNode, useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import challenges from '../data/challenges.json'
+import { useRouter } from 'next/router'
 
 type ExperienceData = {
     experience: number,
     level: number,
     completedChallenges: number
+}
+
+type UserData = {
+    avatar: string,
+    name: string,
 }
 
 type ChallengeData = {
@@ -16,6 +22,7 @@ type ChallengeData = {
 
 type ChallengesContextData = {
     experienceData: ExperienceData,
+    userData: UserData,
     activeChallenge: ChallengeData | null,
     newChallenge: () => void,
     resetChallenge: () => void,
@@ -27,12 +34,14 @@ type ChallengesContextData = {
 
 type ChallengesProviderProps = {
     experienceData: ExperienceData,
+    userData: UserData,
     children: ReactNode,
 }
 
 export const ChallengesContext = createContext({} as ChallengesContextData)
 
-export function ChallengesProvider({ children, ...rest }: ChallengesProviderProps) {
+export function ChallengesProvider({ children, userData, ...rest }: ChallengesProviderProps) {
+    const router = useRouter()
     const [activeChallenge, setActiveChallenge] = useState<ChallengeData | null>(null)
     const [experienceData, setExperienceData] = useState(rest.experienceData)
     const [showLevelUp, setShowLevelUp] = useState(false)
@@ -86,6 +95,11 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
         )
     }, [experienceData])
 
+    useEffect(() => {
+        if (!userData) {
+            router.push('/login')
+        }
+    }, [])
 
     return (
         <ChallengesContext.Provider
@@ -98,9 +112,10 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
                 experienceToNextLevel,
                 showLevelUp,
                 setShowLevelUp,
+                userData,
             }}
         >
-            { children }
+            { userData ? children : null }
         </ChallengesContext.Provider>
     )
 }

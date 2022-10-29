@@ -7,13 +7,18 @@ type HomeProps = {
         experience: number,
         level: number,
         completedChallenges: number
+    },
+    userData: {
+        avatar: string,
+        name: string,
     }
 }
 
-export default function Home({ experienceData }: HomeProps) {
+export default function Home({ experienceData, userData }: HomeProps) {
     return (
         <ChallengesProvider
-            experienceData={experienceData}
+            experienceData={ experienceData}
+            userData={ userData }
         >
             <Moveit />
         </ChallengesProvider>
@@ -23,15 +28,12 @@ export default function Home({ experienceData }: HomeProps) {
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const cookies = ctx.req.cookies
     const experienceData = cookies.experienceData ?
-        JSON.parse(cookies.experienceData) : {
-        experience: 0,
-        level: 1,
-        completedChallenges: 0
-    }
-
-    console.log(experienceData)
+        JSON.parse(cookies.experienceData) : {}
+    const userData = cookies.userData ?
+        JSON.parse(cookies.userData) : null
+    // console.log(experienceData)
 
     return {
-        props: { experienceData }
+        props: { experienceData, userData }
     }
 }

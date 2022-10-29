@@ -1,0 +1,97 @@
+@import '../../assets/theme/colors';
+
+
+.container {
+    height: 100vh;
+    background-color: $blue;
+    display: flex;
+
+    section {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-content: center;
+        gap: 6.25rem;
+
+        img {
+            max-height: 500px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 400px;
+
+            h2 {
+                color: $white;
+                margin-top: 3rem;
+                font-size: 2rem;
+            }
+
+            p {
+                margin-top: 24px;
+                display: flex;
+                align-items: center;
+                margin-bottom: 40px;
+                color: $text-blue;
+                font-size: 1.5rem;
+
+                img {
+                    margin-right: 1rem;
+                }
+            }
+
+            .inputContainer {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                position: relative;
+
+                input {
+                    flex: 1;
+                    height: 80px;
+                    padding: 20px;
+                    padding-right: 0px;
+                    margin: 0;
+                    border: 0;
+                    border-radius: 5px;
+                    font-size: 1.5rem;
+                    color: $white;
+                    background: linear-gradient(90deg, #4953B8 0%, rgba(73, 83, 184, 0.2) 100%);
+
+                    &::placeholder {
+                        color: $text-blue;
+                    }
+
+                    &:focus-visible {
+                        outline: $text-blue solid 2px;
+                    }
+                }
+
+                button {
+                    position: absolute;
+                    right: 0;
+                    margin: 0;
+                    height: 80px;
+                    width: 80px;
+                    border: 0;
+                    border-radius: 0px 5px 5px 0px;
+                    background-color: $blue-dark;
+
+                    &:focus-visible {
+                        outline: $text-blue solid 2px;
+                    }
+
+                    img {
+                        height: 24px;
+                    }
+                }
+            }
+
+        }
+
+    }
+}
