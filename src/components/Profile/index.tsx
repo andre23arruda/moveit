@@ -6,13 +6,7 @@ import styles from './styles.module.scss'
 
 export default function Profile() {
     const router = useRouter()
-    const { experienceData, userData } = useContext(ChallengesContext)
-
-    function logout() {
-        Cookies.remove('experienceData')
-        Cookies.remove('userData')
-        router.push('/login')
-    }
+    const { experienceData, userData, setShowLogout } = useContext(ChallengesContext)
 
     return (
         <div className={ styles.container }>
@@ -33,7 +27,8 @@ export default function Profile() {
 
             <button
                 className={ styles.logoutButton }
-                onClick={ logout }
+                onClick={() => setShowLogout(true)}
+                title="Sair"
             >
                 <img src="/images/logout.svg" alt="Logout" />
             </button>

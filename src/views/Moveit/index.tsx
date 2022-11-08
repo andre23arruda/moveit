@@ -5,6 +5,7 @@ import CompletedChallenge from '../../components/CompletedChallenge'
 import Countdown from '../../components/Countdown'
 import ExperienceBar from '../../components/ExperienceBar'
 import LevelUpModal from '../../components/LevelUpModal'
+import LogoutModal from '../../components/LogoutModal'
 import Profile from '../../components/Profile'
 
 import { CountdownProvider } from '../../contexts/CountdownContext'
@@ -36,7 +37,9 @@ export default function Moveit() {
                 </section>
             </CountdownProvider>
 
-            <LevelUpModal />
+            {/* <LevelUpModal /> */}
+
+            <LogoutModal />
         </div>
     )
 }

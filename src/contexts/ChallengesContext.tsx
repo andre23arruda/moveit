@@ -30,6 +30,8 @@ type ChallengesContextData = {
     experienceToNextLevel: number,
     showLevelUp: boolean,
     setShowLevelUp: React.Dispatch<React.SetStateAction<boolean>>,
+    showLogout: boolean,
+    setShowLogout: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
 type ChallengesProviderProps = {
@@ -45,6 +47,7 @@ export function ChallengesProvider({ children, userData, ...rest }: ChallengesPr
     const [activeChallenge, setActiveChallenge] = useState<ChallengeData | null>(null)
     const [experienceData, setExperienceData] = useState(rest.experienceData)
     const [showLevelUp, setShowLevelUp] = useState(false)
+    const [showLogout, setShowLogout] = useState(false)
 
     const experienceToNextLevel = Math.pow((experienceData.level + 1) * 4, 2)
 
@@ -112,6 +115,8 @@ export function ChallengesProvider({ children, userData, ...rest }: ChallengesPr
                 experienceToNextLevel,
                 showLevelUp,
                 setShowLevelUp,
+                showLogout,
+                setShowLogout,
                 userData,
             }}
         >
